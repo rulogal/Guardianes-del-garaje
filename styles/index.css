@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Satoshi-Black";
+    src: url("../cmt/public/fonts/Satoshi-Black.woff2") format("woff2"),
+      url("../cmt/public/fonts/Satoshi-Black.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Satoshi-Light";
+    src: url("../cmt/public/fonts/Satoshi-Light.woff2") format("woff2"),
+      url("../cmt/public/fonts/Satoshi-Light.woff") format("woff");
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Satoshi-Black, sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: capitalize;
+  }
+  p,
+  span {
+    font-size: clamp(1rem, 0.8757rem + 0.578vw, 1.5rem);
+    font-family: Satoshi-Light, sans-serif;
+    font-weight: 500;
+  }
+
+  a {
+    font-size: clamp(1rem, 0.8757rem + 0.578vw, 1.5rem);
+    font-family: Satoshi-Black, sans-serif;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.85rem;
+  }
+}
