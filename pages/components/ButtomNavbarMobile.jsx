@@ -14,7 +14,7 @@ const ButtomNavbarMobile = () => {
         </div>
       </Link>
 
-      <Link href="tel:8714356678">
+      <Link href="tel:8711427051">
         <div className="flex flex-col items-center gap-y-[.10rem]">
           <Image src={PhoneWhite} alt="" />
           <span className="text-white text-[.875rem]">Llamar</span>
