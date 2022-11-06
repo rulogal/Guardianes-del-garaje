@@ -33,7 +33,7 @@ const Hero = ({
 
         {/* Buttons */}
         <div className="flex flex-col gap-y-2 xl:flex-row xl:gap-y-0 xl:gap-x-4 mt-1 xl:mt-2">
-          <Link href={linkButton}>
+          <Link href={linkButton ?? ""}>
             <Button
               size="default"
               theme="primary_bg"
@@ -44,7 +44,7 @@ const Hero = ({
               type="button"
             />
           </Link>
-          <Link href={linkButton2}>
+          <Link href={linkButton2 ?? ""}>
             <Button
               size="default"
               theme="secondary-bg"
