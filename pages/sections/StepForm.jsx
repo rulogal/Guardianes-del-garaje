@@ -18,26 +18,6 @@ const StepForm = () => {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
 
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs
-  //     .sendForm(
-  //       "service_f8l9an1",
-  //       "template_st68s1t",
-  //       e.target,
-  //       "c9EOqjNyleQug0WBQ"
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //       }
-  //     );
-  // };
-
   function nextFormStep() {
     if (formStep < 6) {
       setFormStep(formStep + 1);
@@ -53,7 +33,7 @@ const StepForm = () => {
   return (
     <div className="flex flex-col justify-center py-12 xl:py-20 px-5 xl:px-60">
       <div className="flex flex-col gap-y-8 xl:gap-y-10">
-        <form onSubmit={sendEmail}>
+        <form>
           {/* STEP #1 - NOMBRE */}
           {formStep === 0 && (
             <div className="flex flex-col gap-y-5 xl:gap-y-10">
