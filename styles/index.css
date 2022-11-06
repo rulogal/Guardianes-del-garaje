@@ -4,15 +4,15 @@
 
 @layer base {
   @font-face {
-    font-family: "Satoshi-Black";
-    src: url("../cmt/public/fonts/Satoshi-Black.woff2") format("woff2"),
-      url("../cmt/public/fonts/Satoshi-Black.woff") format("woff");
+    font-family: "Cako";
+    src: url("/public/fonts/Cako-Black.woff2") format("woff2"),
+      url("/public/fonts/Cako-Black.woff") format("woff");
   }
 
   @font-face {
-    font-family: "Satoshi-Light";
-    src: url("../cmt/public/fonts/Satoshi-Light.woff2") format("woff2"),
-      url("../cmt/public/fonts/Satoshi-Light.woff") format("woff");
+    font-family: "Cardo";
+    src: url("/public/fonts/Cardo.woff2") format("woff2"),
+      url("/public/fonts/Cardo.woff") format("woff");
   }
 
   html {
@@ -24,33 +24,35 @@
   h3,
   h4,
   h5 {
-    font-family: Satoshi-Black, sans-serif;
-    font-weight: 900;
-    line-height: 1.1;
-    text-transform: capitalize;
-  }
-  p,
-  span {
-    font-size: clamp(1rem, 0.8757rem + 0.578vw, 1.5rem);
-    font-family: Satoshi-Light, sans-serif;
-    font-weight: 500;
+    @apply font-title font-black text-primary_super leading-none;
   }
 
+  p,
   a {
-    font-size: clamp(1rem, 0.8757rem + 0.578vw, 1.5rem);
-    font-family: Satoshi-Black, sans-serif;
-    font-weight: 500;
+    @apply font-text font-normal text-primary_super;
+  }
+
+  span {
+    @apply font-text font-normal;
   }
 
   h1 {
-    font-size: 2.5rem;
+    @apply text-5 xl:text-11;
   }
 
   h2 {
-    font-size: 2rem;
+    @apply text-4 xl:text-9;
   }
 
   h3 {
-    font-size: 1.85rem;
+    @apply text-3 xl:text-7;
+  }
+
+  h4 {
+    @apply text-3 xl:text-5;
+  }
+
+  p {
+    @apply text-2 xl:text-3;
   }
 }
