@@ -73,7 +73,7 @@ const catalogo = () => {
                 {/* Ahora solo tienes que llenar el siguiente formulario con tus
                 datos y en poco tiempo recibiras tu cotización. */}
                 Mándanos el diseño o diseños que mas te gustaron junto con tus
-                medidas EXACTAS y en menos de 2 días nuestro equipo tendrá lista
+                medidas exactas y en menos de 2 días nuestro equipo tendrá lista
                 tu cotización.
               </p>
               <Link href="https://api.whatsapp.com/send?phone=528711427051&text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20de%20estos%20dise%C3%B1os:">
