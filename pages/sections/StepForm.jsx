@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import { useState } from "react";
 import Input from "../components/Input";
 import Link from "next/link";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 
 const StepForm = () => {
   const [formStep, setFormStep] = useState(0);
@@ -18,25 +18,25 @@ const StepForm = () => {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_f8l9an1",
-        "template_st68s1t",
-        e.target,
-        "c9EOqjNyleQug0WBQ"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+  //   emailjs
+  //     .sendForm(
+  //       "service_f8l9an1",
+  //       "template_st68s1t",
+  //       e.target,
+  //       "c9EOqjNyleQug0WBQ"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  // };
 
   function nextFormStep() {
     if (formStep < 6) {
