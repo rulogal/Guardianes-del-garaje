@@ -39,7 +39,7 @@ const catalogo = () => {
           title="Catálogo De Diseños Únicos Y Modernos De Cocheras Eléctricas"
         />
         <CarouselBrands />
-        <CarouselReviews />
+        {/* <CarouselReviews /> */}
 
         {/* Paso #1 - Diseño */}
         <div className="py-10 px-5 xl:py-20  xl:px-40 bg-primary_bg border border-primary_super">
@@ -53,9 +53,9 @@ const catalogo = () => {
               , para ayudarte a darte una idea del precio de cada uno.
               <br />
               <br />
-              <b className="underline"> Nota:</b>
+              {/* <b className="underline"> Nota:</b>
               Debajo de la informacion puedes agregar automaticamente los
-              diseños que te interesan cotizar (maximo 2).
+              diseños que te interesan cotizar (maximo 2). */}
             </p>
           </div>
         </div>
@@ -70,15 +70,27 @@ const catalogo = () => {
             {/* Poner formulario y boton de agregado arriba automatico. */}
 
             <div className="flex flex-col gap-y-2 xl:w-1/2">
-              <p>
+              {/* <p>
                 Ahora solo tienes que llenar el siguiente formulario con tus
                 datos y en poco tiempo recibiras tu cotización.
+              </p> */}
+              <p>
+                Ahora solo tienes que mandarnos el diseño que elegiste a nuestro
+                WhatsApp y en poco tiempo recibiras tu cotización.
               </p>
+              <Link href="https://api.whatsapp.com/send?phone=+8711427051&text=Hola,%20me%20interesan%20estos%20dise%C3%B1os">
+                <Button
+                  text="Mandar WhatsApp"
+                  size="small"
+                  theme="primary-bg"
+                  iconRight={ArrowRightWhite}
+                />
+              </Link>
             </div>
           </div>
         </div>
 
-        <StepForm />
+        {/* <StepForm /> */}
       </main>
       <Footer />
     </div>

@@ -86,10 +86,10 @@ const DiseñosCatalogo = () => {
   const catalogo = [
     {
       id: 0,
-      tiempo: "10",
-      costo1: "30,000",
-      costo2: "354,000",
-      costo3: "300,000",
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
       img: CocheraPortada,
     },
     {
@@ -299,12 +299,12 @@ const DiseñosCatalogo = () => {
           </div>
         </div>
 
-        <Button
+        {/* <Button
           iconRight={ArrowRightWhite}
           size="small"
           text="Agregar A Cotización"
           onClick={addDesign}
-        />
+        /> */}
         {/* <Button
           iconRight={ArrowRightWhite}
           size="small"
