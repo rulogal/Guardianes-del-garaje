@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MainContext } from "../../context/main";
 import ArrowRightWhite from "../assets/icons/right-arrow-white.svg";
 import ArrowLeftBlue from "../assets/icons/left-arrow-blue.svg";
 import ArrowRightBlue from "../assets/icons/right-arrow-blue.svg";
@@ -8,12 +10,12 @@ import Link from "next/link";
 // import emailjs from "emailjs-com";
 
 const StepForm = () => {
+  const context = useContext(MainContext);
   const [formStep, setFormStep] = useState(0);
 
   // Estados
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
-  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
@@ -52,7 +54,7 @@ const StepForm = () => {
                   name="nombre"
                   type="text"
                   onChange={(currentInput) => {
-                    setName(currentInput.currentTarget.value);
+                    context?.setName(currentInput.currentTarget.value);
                   }}
                 />
               </div>

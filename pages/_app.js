@@ -1,6 +1,7 @@
 import "../styles/index.css";
 import React, { useEffect } from "react";
 import { useRouter, Router } from "next/router";
+import { ContextProvider } from "../context/main";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -23,7 +24,11 @@ function MyApp({ Component, pageProps }) {
       Router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, []);
-  return <Component {...pageProps} />;
+  return (
+    <ContextProvider>
+      <Component {...pageProps} />
+    </ContextProvider>
+  );
 }
 
 export default MyApp;

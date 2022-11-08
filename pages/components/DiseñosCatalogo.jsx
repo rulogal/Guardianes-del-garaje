@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { MainContext } from "../../context/main";
+
 import CocheraPortada from "../assets/imgs/cochera-portada.jpg";
 import Cochera24 from "../assets/imgs/cochera (24).png";
 import Cochera1 from "../assets/imgs/cochera (1).jpg";
@@ -29,6 +32,7 @@ import ArrowLeftBlue from "../assets/icons/left-arrow-blue.svg";
 import { useState } from "react";
 
 const DiseñosCatalogo = () => {
+  const context = useContext(MainContext);
   const [numerador, setNumerador] = useState(0);
 
   const nextDesign = () => {
@@ -47,15 +51,49 @@ const DiseñosCatalogo = () => {
     }
   };
 
+  const addDesign = () => {
+    const auxItems = context?.cart?.items;
+
+    if (auxItems) {
+      if (auxItems?.id === catalogo[numerador]?.id) {
+        return false;
+      }
+
+      if (auxItems?.length === 2) {
+        return false;
+      }
+
+      const newItem = catalogo[numerador];
+      const newItems = [...auxItems];
+
+      newItems.push(newItem);
+
+      const newCart = {
+        ...cart,
+        items: newItems,
+      };
+
+      context?.setCart(newCart);
+    } else {
+      context?.setCart({
+        items: [catalogo[numerador]],
+      });
+    }
+  };
+
+  // const removeDesign = () => {};
+
   const catalogo = [
     {
-      tiempo: "Error, dato desconocido",
-      costo1: "Error, dato desconocido",
-      costo2: "Error, dato desconocido",
-      costo3: "Error, dato desconocido",
+      id: 0,
+      tiempo: "10",
+      costo1: "30,000",
+      costo2: "354,000",
+      costo3: "300,000",
       img: CocheraPortada,
     },
     {
+      id: 1,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -261,11 +299,17 @@ const DiseñosCatalogo = () => {
           </div>
         </div>
 
-        {/* <Button
+        <Button
           iconRight={ArrowRightWhite}
           size="small"
           text="Agregar A Cotización"
-          onClick={nextDesign}
+          onClick={addDesign}
+        />
+        {/* <Button
+          iconRight={ArrowRightWhite}
+          size="small"
+          text="Eliminar"
+          onClick={}
         /> */}
       </div>
     </div>

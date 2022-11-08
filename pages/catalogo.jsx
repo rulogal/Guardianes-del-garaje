@@ -5,6 +5,7 @@
 import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Herov2 from "./sections/Herov2";
+
 import HeroImage from "../pages/assets/imgs/hero22.png";
 import CarouselBrands from "./components/CarouselBrands";
 import CarouselReviews from "./components/CarouselReviews";
@@ -38,7 +39,7 @@ const catalogo = () => {
           title="Catálogo De Diseños Únicos Y Modernos De Cocheras Eléctricas"
         />
         <CarouselBrands />
-        {/* <CarouselReviews /> */}
+        <CarouselReviews />
 
         {/* Paso #1 - Diseño */}
         <div className="py-10 px-5 xl:py-20  xl:px-40 bg-primary_bg border border-primary_super">
@@ -52,9 +53,9 @@ const catalogo = () => {
               , para ayudarte a darte una idea del precio de cada uno.
               <br />
               <br />
-              {/* <b className="underline"> Nota:</b>
+              <b className="underline"> Nota:</b>
               Debajo de la informacion puedes agregar automaticamente los
-              diseños que te interesan cotizar (maximo 2). */}
+              diseños que te interesan cotizar (maximo 2).
             </p>
           </div>
         </div>
@@ -70,24 +71,14 @@ const catalogo = () => {
 
             <div className="flex flex-col gap-y-2 xl:w-1/2">
               <p>
-                {/* Ahora solo tienes que llenar el siguiente formulario con tus
-                datos y en poco tiempo recibiras tu cotización. */}
-                Mándanos el diseño o diseños que mas te gustaron junto con tus
-                medidas exactas y en menos de 2 días nuestro equipo tendrá lista
-                tu cotización.
+                Ahora solo tienes que llenar el siguiente formulario con tus
+                datos y en poco tiempo recibiras tu cotización.
               </p>
-              <Link href="https://api.whatsapp.com/send?phone=528711427051&text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20de%20estos%20dise%C3%B1os:">
-                <Button
-                  iconRight={ArrowRightWhite}
-                  size="small"
-                  text="Pedir Cotización"
-                />
-              </Link>
             </div>
           </div>
         </div>
 
-        {/* <StepForm /> */}
+        <StepForm />
       </main>
       <Footer />
     </div>
