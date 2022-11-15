@@ -2,34 +2,62 @@ import { useContext } from "react";
 import { MainContext } from "../../context/main";
 import ArrowRightWhite from "../assets/icons/right-arrow-white.svg";
 import ArrowLeftBlue from "../assets/icons/left-arrow-blue.svg";
-import ArrowRightBlue from "../assets/icons/right-arrow-blue.svg";
 import Button from "../components/Button";
 import { useState } from "react";
 import Input from "../components/Input";
 import Link from "next/link";
-// import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
 
 const StepForm = () => {
   const context = useContext(MainContext);
   const [formStep, setFormStep] = useState(0);
 
-  // Estados
-  const [width, setWidth] = useState("");
-  const [height, setHeight] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [date, setDate] = useState("");
-
   function nextFormStep() {
     if (formStep < 6) {
-      setFormStep(formStep + 1);
+      setFormStep((prevState) => prevState + 1);
     }
   }
 
   function previousFormStep() {
     if (formStep > 0) {
-      setFormStep(formStep - 1);
+      setFormStep((prevState) => prevState - 1);
     }
+  }
+
+  async function send() {
+    const items = `${context?.cart?.items?.[0]?.id} | ${context?.cart?.items?.[1]?.id}`;
+
+    const payload = {
+      cart: items,
+      name: context?.name,
+      from_name: "Guardianes del garaje",
+      phone: context?.phone,
+      width: context?.width,
+      height: context?.height,
+      address: context?.address,
+      date: context?.date,
+    };
+    console.info("Payload: ", payload);
+
+    try {
+      const result = await emailjs.send(
+        "service_f8l9an1",
+        "template_st68s1t",
+        payload,
+        "c9EOqjNyleQug0WBQ"
+      );
+      console.info(result);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+
+    setFormStep(5);
+  }
+
+  function handleNext() {
+    setTimeout(() => {
+      formStep <= 3 ? nextFormStep() : send();
+    }, 100);
   }
 
   return (
@@ -87,7 +115,7 @@ const StepForm = () => {
                   name="width"
                   type="text"
                   onChange={(currentInput) => {
-                    setWidth(currentInput.currentTarget.value);
+                    context?.setWidth(currentInput.currentTarget.value);
                   }}
                 />
                 <Input
@@ -95,7 +123,7 @@ const StepForm = () => {
                   name="height"
                   type="text"
                   onChange={(currentInput) => {
-                    setHeight(currentInput.currentTarget.value);
+                    context?.setHeight(currentInput.currentTarget.value);
                   }}
                 />
               </div>
@@ -122,7 +150,7 @@ const StepForm = () => {
                   name="address"
                   type="text"
                   onChange={(currentInput) => {
-                    setAddress(currentInput.currentTarget.value);
+                    context?.setAddress(currentInput.currentTarget.value);
                   }}
                 />
               </div>
@@ -150,7 +178,7 @@ const StepForm = () => {
                   placeholder=""
                   type="date"
                   onChange={(currentInput) => {
-                    setDate(currentInput.currentTarget.value);
+                    context?.setDate(currentInput.currentTarget.value);
                   }}
                 />
               </div>
@@ -178,7 +206,7 @@ const StepForm = () => {
                   placeholder=""
                   type="tel"
                   onChange={(currentInput) => {
-                    setPhone(currentInput.currentTarget.value);
+                    context?.setPhone(currentInput.currentTarget.value);
                   }}
                 />
               </div>
@@ -205,6 +233,7 @@ const StepForm = () => {
           {formStep < 5 && (
             <div className="flex flex-row gap-x-2 xl:gap-x-10 py-7 xl:py-0 xl:mt-12 justify-center">
               <Button
+                type="button"
                 iconLeft={ArrowLeftBlue}
                 size="super-small"
                 theme="secondary-bg"
@@ -213,10 +242,11 @@ const StepForm = () => {
               />
 
               <Button
+                type="button"
                 iconRight={ArrowRightWhite}
                 size="super-small"
                 text="Siguiente"
-                onClick={formStep !== 5 ? nextFormStep : null}
+                onClick={handleNext}
               />
             </div>
           )}

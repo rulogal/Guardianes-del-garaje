@@ -27,13 +27,13 @@ import CarBlue from "../assets/icons/car-blue.png";
 import Button from "./Button";
 import ArrowRightWhite from "../assets/icons/right-arrow-white.svg";
 import ArrowLeftWhite from "../assets/icons/left-arrow-white.svg";
-import ArrowRightBlue from "../assets/icons/right-arrow-blue.svg";
-import ArrowLeftBlue from "../assets/icons/left-arrow-blue.svg";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const DiseñosCatalogo = () => {
   const context = useContext(MainContext);
   const [numerador, setNumerador] = useState(0);
+  const [activadorBtnElminar, setActivadorBtnElminar] = useState(true);
 
   const nextDesign = () => {
     if (numerador === 19) {
@@ -55,21 +55,39 @@ const DiseñosCatalogo = () => {
     const auxItems = context?.cart?.items;
 
     if (auxItems) {
-      if (auxItems?.id === catalogo[numerador]?.id) {
+      // No permitir agregar el mismo modelo.
+      if (
+        context?.cart?.items?.[0]?.id === catalogo[numerador]?.id ||
+        context?.cart?.items?.[1]?.id === catalogo[numerador]?.id
+      ) {
+        toast.error("¡Este diseño ya lo habias agregado a tu cotización!");
         return false;
       }
 
+      // Si ya agrego dos, no permitirle agregar mas.
       if (auxItems?.length === 2) {
+        toast.error(
+          "Lo sentimos, solo puedes agregar 2 diseños a tu cotización, elimina uno para agregar este."
+        );
         return false;
       }
 
       const newItem = catalogo[numerador];
       const newItems = [...auxItems];
 
-      newItems.push(newItem);
+      // Si no ha agregado mas de dos y el modelo no es el mismo, agregarlo al arreglo.
+      if (auxItems?.length <= 2 && auxItems?.id != catalogo[numerador]?.id) {
+        newItems.push(newItem);
+        if (auxItems?.length === 0) {
+          toast.success("¡Listo, agregaste tu primer diseño a tu cotización!");
+        }
+        if (auxItems?.length === 1) {
+          toast.success("¡Has agregado tu segundo modelo a tu cotización!");
+        }
+      }
 
       const newCart = {
-        ...cart,
+        ...context?.cart,
         items: newItems,
       };
 
@@ -78,10 +96,19 @@ const DiseñosCatalogo = () => {
       context?.setCart({
         items: [catalogo[numerador]],
       });
+      toast.success("¡Listo, agregaste tu primer diseño a tu cotización!");
     }
   };
 
-  // const removeDesign = () => {};
+  const deletDesign = () => {
+    // Borrar de la cotizacion.
+    if (context?.cart?.items?.[0]?.id === catalogo[numerador]?.id) {
+      context?.cart?.items?.shift();
+    } else {
+      context?.cart?.items?.pop();
+    }
+    toast.success("¡Listo, este diseño ya no sera agregado a tu cotización!");
+  };
 
   const catalogo = [
     {
@@ -101,6 +128,7 @@ const DiseñosCatalogo = () => {
       img: Cochera1,
     },
     {
+      id: 2,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -108,6 +136,7 @@ const DiseñosCatalogo = () => {
       img: Cochera3,
     },
     {
+      id: 3,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -115,6 +144,7 @@ const DiseñosCatalogo = () => {
       img: Cochera5,
     },
     {
+      id: 4,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -122,6 +152,7 @@ const DiseñosCatalogo = () => {
       img: Cochera7,
     },
     {
+      id: 5,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -129,6 +160,7 @@ const DiseñosCatalogo = () => {
       img: Cochera9,
     },
     {
+      id: 6,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -136,6 +168,7 @@ const DiseñosCatalogo = () => {
       img: Cochera10,
     },
     {
+      id: 7,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -143,6 +176,7 @@ const DiseñosCatalogo = () => {
       img: Cochera11,
     },
     {
+      id: 8,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -151,6 +185,7 @@ const DiseñosCatalogo = () => {
     },
 
     {
+      id: 9,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -159,6 +194,7 @@ const DiseñosCatalogo = () => {
     },
 
     {
+      id: 10,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -166,6 +202,7 @@ const DiseñosCatalogo = () => {
       img: Cochera15,
     },
     {
+      id: 11,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -173,6 +210,7 @@ const DiseñosCatalogo = () => {
       img: Cochera16,
     },
     {
+      id: 12,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -180,6 +218,7 @@ const DiseñosCatalogo = () => {
       img: Cochera17,
     },
     {
+      id: 13,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -187,6 +226,7 @@ const DiseñosCatalogo = () => {
       img: Cochera18,
     },
     {
+      id: 14,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -194,6 +234,7 @@ const DiseñosCatalogo = () => {
       img: Cochera19,
     },
     {
+      id: 15,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -201,6 +242,7 @@ const DiseñosCatalogo = () => {
       img: Cochera20,
     },
     {
+      id: 16,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -208,6 +250,7 @@ const DiseñosCatalogo = () => {
       img: Cochera21,
     },
     {
+      id: 17,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -215,6 +258,7 @@ const DiseñosCatalogo = () => {
       img: Cochera22,
     },
     {
+      id: 18,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -222,6 +266,7 @@ const DiseñosCatalogo = () => {
       img: Cochera23,
     },
     {
+      id: 19,
       tiempo: "Error, dato desconocido",
       costo1: "Error, dato desconocido",
       costo2: "Error, dato desconocido",
@@ -253,6 +298,18 @@ const DiseñosCatalogo = () => {
             theme="primary-bg"
             size="hiper-small"
             onClick={nextDesign}
+          />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                border: "1px solid #0064DF",
+                background: "#D6EEFF",
+                padding: "16px",
+                color: "#0064DF",
+                width: "xl:1000px",
+              },
+            }}
           />
         </div>
       </div>
@@ -299,21 +356,38 @@ const DiseñosCatalogo = () => {
           </div>
         </div>
 
-        {/* <Button
-          iconRight={ArrowRightWhite}
-          size="small"
-          text="Agregar A Cotización"
-          onClick={addDesign}
-        /> */}
-        {/* <Button
-          iconRight={ArrowRightWhite}
-          size="small"
-          text="Eliminar"
-          onClick={}
-        /> */}
+        <div className="flex flex-col xl:flex-row xl:gap-x-2 gap-y-2">
+          <Button
+            iconRight={ArrowRightWhite}
+            size="small"
+            text="Agregar A Cotización"
+            onClick={addDesign}
+          />
+
+          {context?.cart?.items?.[0]?.id === catalogo[numerador]?.id && (
+            <Button
+              iconRight={ArrowRightWhite}
+              size="small"
+              text="Eliminar"
+              onClick={deletDesign}
+            />
+          )}
+
+          {context?.cart?.items?.[1]?.id === catalogo[numerador]?.id && (
+            <Button
+              iconRight={ArrowRightWhite}
+              size="small"
+              text="Eliminar"
+              onClick={deletDesign}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
 };
+
+// context?.cart?.items?.[0]?.id === catalogo[numerador]?.id ||
+//         context?.cart?.items?.[1]?.id === catalogo[numerador]?.id
 
 export default DiseñosCatalogo;

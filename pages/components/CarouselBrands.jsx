@@ -27,12 +27,12 @@ export default function CarouselBrands() {
         direction="right"
       >
         <div className="flex flex-row gap-x-6 mt-4 xl:mt-0">
-          <Image width={150} src={Bachoco} alt="" />
-          <Image width={100} src={Barcel} alt="" />
-          <Image width={100} src={Chilchota} alt="" />
-          <Image width={150} src={Inbursa} alt="" />
-          <Image width={60} src={Lala} alt="" />
-          <Image width={150} src={Pemex} alt="" />
+          <Image width={150} height="auto" src={Bachoco} alt="" />
+          <Image width={100} height="auto" src={Barcel} alt="" />
+          <Image width={100} height="auto" src={Chilchota} alt="" />
+          <Image width={150} height="auto" src={Inbursa} alt="" />
+          <Image width={60} height="auto" src={Lala} alt="" />
+          <Image width={150} height="auto" src={Pemex} alt="" />
         </div>
       </Marquee>
     </div>
