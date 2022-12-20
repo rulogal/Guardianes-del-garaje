@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { MainContext } from "../../context/main";
 
 import CocheraPortada from "../assets/imgs/cochera-portada.jpg";
-import Cochera24 from "../assets/imgs/cochera (24).png";
 import Cochera1 from "../assets/imgs/cochera (1).jpg";
 import Cochera3 from "../assets/imgs/cochera (3).jpg";
 import Cochera5 from "../assets/imgs/cochera (5).jpg";
@@ -21,6 +20,16 @@ import Cochera20 from "../assets/imgs/cochera (20).jpg";
 import Cochera21 from "../assets/imgs/cochera (21).jpg";
 import Cochera22 from "../assets/imgs/cochera (22).jpg";
 import Cochera23 from "../assets/imgs/cochera (23).jpeg";
+import Cochera24 from "../assets/imgs/cochera (24).png";
+import Cochera25 from "../assets/imgs/cochera (25).jpeg";
+import Cochera26 from "../assets/imgs/cochera (26).jpeg";
+import Cochera27 from "../assets/imgs/cochera (27).jpeg";
+import Cochera28 from "../assets/imgs/cochera (28).jpeg";
+import Cochera29 from "../assets/imgs/cochera (29).jpeg";
+import Cochera30 from "../assets/imgs/cochera (30).jpeg";
+import Cochera31 from "../assets/imgs/cochera (31).jpeg";
+import Cochera32 from "../assets/imgs/cochera (32).jpeg";
+import Cochera33 from "../assets/imgs/cochera (24).jpeg";
 
 import Image from "next/image";
 import CarBlue from "../assets/icons/car-blue.png";
@@ -272,6 +281,78 @@ const DiseñosCatalogo = () => {
       costo2: "Error, dato desconocido",
       costo3: "Error, dato desconocido",
       img: Cochera24,
+    },
+    {
+      id: 20,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera25,
+    },
+    {
+      id: 21,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera26,
+    },
+    {
+      id: 22,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera27,
+    },
+    {
+      id: 23,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera28,
+    },
+    {
+      id: 24,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera29,
+    },
+    {
+      id: 25,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera30,
+    },
+    {
+      id: 26,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera31,
+    },
+    {
+      id: 27,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera32,
+    },
+    {
+      id: 28,
+      tiempo: "Error, dato desconocido",
+      costo1: "Error, dato desconocido",
+      costo2: "Error, dato desconocido",
+      costo3: "Error, dato desconocido",
+      img: Cochera33,
     },
   ];
 
