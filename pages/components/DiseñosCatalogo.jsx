@@ -54,7 +54,7 @@ const DiseñosCatalogo = () => {
 
   const previousDesign = () => {
     if (numerador === 0) {
-      setNumerador(numerador + 19);
+      setNumerador(numerador + 27);
     } else {
       setNumerador(numerador - 1);
     }
