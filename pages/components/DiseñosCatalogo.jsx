@@ -45,8 +45,8 @@ const DiseñosCatalogo = () => {
   const [activadorBtnElminar, setActivadorBtnElminar] = useState(true);
 
   const nextDesign = () => {
-    if (numerador === 19) {
-      setNumerador(numerador - 19);
+    if (numerador === 27) {
+      setNumerador(numerador - 27);
     } else {
       setNumerador(numerador + 1);
     }
