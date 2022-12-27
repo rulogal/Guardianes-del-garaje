@@ -25,11 +25,13 @@
   h4,
   h5 {
     @apply font-title font-black text-primary_super leading-none;
+    font-display: swap;
   }
 
   p,
   a {
     @apply font-text font-normal text-primary_super;
+    font-display: swap;
   }
 
   span {

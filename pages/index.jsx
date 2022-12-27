@@ -2,39 +2,22 @@
  * @description Pagina home del sitio web.
  */
 
-import Head from "next/head";
-import Navbar from "./components/Navbar";
-import Hero from "./sections/Hero";
-import ButtomNavbarMobile from "./components/ButtomNavbarMobile";
-import ArrowRightBlue from "../pages/assets/icons/right-arrow-blue.svg";
-import ArrowRightWhite from "../pages/assets/icons/right-arrow-white.svg";
-import CarouselBrands from "./components/CarouselBrands";
-import Footer from "./modules/Footer";
-import HeroImage from "../pages/assets/imgs/hero11.png";
-import CreacionBlue from "../pages/assets/icons/creacion-blue.svg";
-import AutomatizacionBlue from "../pages/assets/icons/automatizacion-blue.svg";
-import ReparacionBlue from "../pages/assets/icons/reparacion-blue.svg";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./components/Button";
+import Layout from "components/Layout/Layout";
+import Button from "components/Button";
+import Hero from "components/Heros/Hero";
+import CarouselBrands from "components/Carousels/Brands";
+import ArrowRightBlue from "assets/icons/right-arrow-blue.svg";
+import ArrowRightWhite from "assets/icons/right-arrow-white.svg";
+import HeroImage from "assets/imgs/hero11.png";
+import CreacionBlue from "assets/icons/creacion-blue.svg";
+import AutomatizacionBlue from "assets/icons/automatizacion-blue.svg";
+import ReparacionBlue from "assets/icons/reparacion-blue.svg";
 
-const index = () => {
+const Index = () => {
   return (
-    <div>
-      <Head>
-        <title>
-          Cocheras Eléctricas En Torreón | Reparación De Cocheras |
-          Mantenimiento De Cocheras
-        </title>
-        <meta
-          name="description"
-          content="Para nosotros la honestidad lo es todo, por eso todos nuestros servicios de cocheras eléctricas tienen una garantía anti-fallas mínima de 6 meses FIRMADA."
-        />
-        <link rel="icon" href="/pages/assets/icons/cart.svg" />
-      </Head>
-
-      <Navbar />
-      <ButtomNavbarMobile />
+    <Layout>
       <main>
         <Hero
           image={HeroImage}
@@ -162,10 +145,8 @@ const index = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
-export default index;
+export default Index;

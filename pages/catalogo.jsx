@@ -3,34 +3,19 @@
  */
 
 import Head from "next/head";
-import { ContextProvider } from "../context/main";
-import Navbar from "./components/Navbar";
-import Herov2 from "./sections/Herov2";
+import Layout from "components/Layout/Layout";
+import { ContextProvider } from "context/main";
+import Herov2 from "components/Heros/Herov2";
+import CarouselBrands from "components/Carousels/Brands";
+import CarouselReviews from "components/Carousels/Reviews";
+import DiseñosCatalogo from "components/Catalogo";
+import HeroImage from "assets/imgs/hero22.png";
+import StepForm from "components/Input/StepForm";
 
-import HeroImage from "../pages/assets/imgs/hero22.png";
-import CarouselBrands from "./components/CarouselBrands";
-import CarouselReviews from "./components/CarouselReviews";
-import Footer from "./modules/Footer";
-import DiseñosCatalogo from "./components/DiseñosCatalogo";
-import StepForm from "./sections/StepForm";
-
-const catalogo = () => {
+const Catalogo = () => {
   return (
-    <ContextProvider>
-      <div>
-        <Head>
-          <title>
-            Diseños De Cocheras Modernas En Torreón | Guardianes Del Garaje
-          </title>
-          <meta
-            name="description"
-            content="Llevamos mucho tiempo dando servicios de cocheras electricas en torreon y sabemos que solo se elige una vez el diseño de una cochera."
-          />
-          <link rel="icon" href="/pages/assets/icons/cart.svg" />
-        </Head>
-
-        <Navbar />
-
+    <Layout>
+      <ContextProvider>
         <main>
           <Herov2
             image={HeroImage}
@@ -78,10 +63,9 @@ const catalogo = () => {
 
           <StepForm />
         </main>
-        <Footer />
-      </div>
-    </ContextProvider>
+      </ContextProvider>
+    </Layout>
   );
 };
 
-export default catalogo;
+export default Catalogo;
