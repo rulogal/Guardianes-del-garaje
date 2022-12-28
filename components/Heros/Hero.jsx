@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button from "components/Button";
+import Button from "../Button/index";
 
 const Hero = ({
   title,
@@ -40,7 +40,6 @@ const Hero = ({
               text={buttonText}
               iconLeft={iconLeft}
               iconRight={iconRight}
-              alt=""
               type="button"
             />
           </Link>

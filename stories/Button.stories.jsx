@@ -1,40 +1,38 @@
 import React from "react";
 
-import { Button } from "./Button";
+// Importas el componente
+import Button from "../components/Button/index";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} />;
+// Crear el el Button base (Generico)
+const Template = (allProps) => <Button {...allProps} />;
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button",
-};
-
 export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button Secondary",
-};
+export const HiperSmall = Template.bind({});
+export const ButonSmallTerciaryTextHola = Template.bind({});
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
-
-export const Small = Template.bind({});
-Small.args = {
+Primary.args = {
+  theme: "primary-bg",
+  text: "Botón",
   size: "small",
-  label: "Button",
+  type: "button",
+};
+
+Secondary.args = {
+  theme: "secondary-bg",
+  text: "Botón Secondario",
+  size: "small",
+  type: "button",
+};
+
+ButonSmallTerciaryTextHola.args = {
+  theme: "primary-bg",
+  text: "Botón Hiper Small",
+  size: "hiper-small",
+  type: "button",
 };

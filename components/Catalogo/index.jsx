@@ -9,6 +9,7 @@ import ArrowRightWhite from "assets/icons/right-arrow-white.svg";
 import ArrowLeftWhite from "assets/icons/left-arrow-white.svg";
 
 const DiseñosCatalogo = () => {
+  3;
   const context = useContext(MainContext);
   const [numerador, setNumerador] = useState(0);
 
